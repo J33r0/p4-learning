@@ -36,7 +36,7 @@ class Sniffer(Thread):
         super(Sniffer, self).join(timeout)
 
     def should_stop_sniffer(self, packet):
-        return self.stop_sniffer.isSet()
+        return self.stop_sniffer.is_set()
 
     def print_packet(self, packet):
         print("[!] A packet was reflected from the switch: ")
@@ -83,7 +83,7 @@ def main():
         print("[*] Stop sniffing")
         listener.join(2.0)
 
-        if listener.isAlive():
+        if listener.is_alive():
             listener.socket.close()
 
 if __name__ == '__main__':
